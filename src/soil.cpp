@@ -5,7 +5,7 @@ std::string Soil::symbol() {
 }
 
 void Soil::end_day() {
-    // no-op
+    // skip
 }
 
 bool Soil::is_soil() {

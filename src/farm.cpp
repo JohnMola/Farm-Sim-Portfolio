@@ -7,10 +7,10 @@
 
 Farm::Farm(int rows, int columns, Player *player) : rows(rows), columns(columns), player(player) {
     if(player == nullptr) {
-        throw std::invalid_argument("Player pointer cannot be null");
+        throw std::invalid_argument("Player pointer cannot be 0");
     }
     if(rows <= 0 || columns <= 0) {
-        throw std::invalid_argument("Farm dimensions must be positive");
+        throw std::invalid_argument("Farm dimensions have to be be positive");
     }
     for(int i = 0; i < rows; i++) {
         std::vector<Plot *> row;
@@ -42,11 +42,10 @@ bool Farm::plant(int row, int column, Plot *plot) {
     Plot *current_plot = plots.at(row).at(column);
 
     if(!current_plot->is_soil()) {
-        delete plot;  // Clean up the new plot since we can't plant here
+        delete plot;
         return false;
     }
 
-    // Only assign and delete if we passed the soil check
     plots.at(row).at(column) = plot;
     delete current_plot;
     return true;
@@ -59,7 +58,6 @@ bool Farm::harvest(int row, int column) {
         return false;
     }
 
-    // Replace with new soil
     Soil *new_soil = new Soil();
     plots.at(row).at(column) = new_soil;
     delete current_plot;
@@ -75,7 +73,6 @@ void Farm::end_day() {
 }
 
 Farm::~Farm() {
-    // Clean up all plots in the farm
     for(int i = 0; i < rows; i++) {
         for(int j = 0; j < columns; j++) {
             delete plots.at(i).at(j);
