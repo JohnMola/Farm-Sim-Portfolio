@@ -15,7 +15,20 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Catch2)
 
-add_executable(farm_test tests/farm_test.cpp src/farm.cpp)
+add_executable(farm_test tests/farm_test.cpp src/farm.cpp
+        src/carrot.cpp
+        src/carrot.hpp
+        src/farm_printer.cpp
+        src/farm_printer.hpp
+        src/player.cpp
+        src/player.hpp
+        src/plot.hpp
+        src/soil.cpp
+        src/soil.hpp
+        tests/carrot_test.cpp
+        tests/farm_printer_test.cpp
+        tests/player_test.cpp
+        tests/soil_test.cpp)
 add_executable(main main.cpp src/farm.cpp)
 
 target_link_libraries(farm_test PRIVATE Catch2::Catch2WithMain)
