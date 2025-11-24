@@ -21,7 +21,7 @@ std::string LegendPrinter::pp() {
     output += "l  Plant lettuce\n";
     output += "u  Plant spinach\n";
     output += "b  Plant beet\n";
-    output += "n  Plant brussels sprouts\n";
+    output += "n  Plant brussel sprout\n";
     output += "h  Harvest\n";
     output += "t  Water\n";
     output += "e  End day\n";
