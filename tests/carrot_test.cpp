@@ -15,27 +15,32 @@ TEST_CASE( "it returns a V when the carrot is mature" ) {
     carrot.end_day();
     REQUIRE( carrot.symbol() == "V" );
 }
+
 TEST_CASE("cannot harvest a new carrot"){
     Carrot carrot;
     REQUIRE(carrot.is_harvestable() == false);
 }
+
 TEST_CASE("can harvest after 1 day maturation"){
     Carrot carrot;
     carrot.end_day();
     REQUIRE(carrot.is_harvestable() == true);
 }
+
 TEST_CASE("can harvest after 2 day maturation"){
     Carrot carrot;
     carrot.end_day();
     carrot.end_day();
     REQUIRE(carrot.is_harvestable() == true);
 }
+
 TEST_CASE("watering increases age by 2 after ending the day"){
     Carrot carrot;
     carrot.water();
     carrot.end_day();
     REQUIRE(carrot.get_days() == 2);
 }
+
 TEST_CASE("watering twice on the same day causes no effect"){
     Carrot carrot;
     carrot.water();
@@ -43,6 +48,7 @@ TEST_CASE("watering twice on the same day causes no effect"){
     carrot.end_day();
     REQUIRE(carrot.get_days() == 2);
 }
+
 TEST_CASE("watering on one day does not effect days in the future"){
     Carrot carrot;
     carrot.water();
@@ -50,6 +56,7 @@ TEST_CASE("watering on one day does not effect days in the future"){
     carrot.end_day();
     REQUIRE(carrot.get_days() == 3);
 }
+
 TEST_CASE("watering supported on multiple days"){
     Carrot carrot;
     carrot.water();

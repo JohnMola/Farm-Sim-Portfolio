@@ -11,6 +11,7 @@ std::string Spinach::symbol(){
         return "U";
     }
 }
+
 void Spinach::end_day(){
     if(watered){
         age += 2;
@@ -20,12 +21,15 @@ void Spinach::end_day(){
     }
     watered = false;
 }
+
 bool Spinach::is_harvestable(){
     return age >= 3;
 }
+
 void Spinach::water(){
     watered = true;
 }
+
 int Spinach::get_days(){
     return age;
 }

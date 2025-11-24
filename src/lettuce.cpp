@@ -10,6 +10,7 @@ std::string Lettuce::symbol(){
         return "L";
     }
 }
+
 void Lettuce::end_day(){
     if(watered){
         age += 2;
@@ -19,12 +20,15 @@ void Lettuce::end_day(){
     }
     watered = false;
 }
+
 bool Lettuce::is_harvestable(){
     return age >= 2;
 }
+
 void Lettuce::water(){
     watered = true;
 }
+
 int Lettuce::get_days(){
     return age;
 }

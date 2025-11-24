@@ -1,4 +1,5 @@
 #include "beet.hpp"
+
 std::string Beet::symbol(){
     if(age < 2){
         return "#";
@@ -10,6 +11,7 @@ std::string Beet::symbol(){
         return "B";
     }
 }
+
 void Beet::end_day(){
     if(watered){
         age += 2;
@@ -19,12 +21,15 @@ void Beet::end_day(){
     }
     watered = false;
 }
+
 bool Beet::is_harvestable(){
     return age >= 5;
 }
+
 void Beet::water(){
     watered = true;
 }
+
 int Beet::get_days(){
     return age;
 }

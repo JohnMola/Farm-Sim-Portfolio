@@ -20,9 +20,9 @@ TEST_CASE("Brussel sprout matures after 10 days"){
     REQUIRE(brussel_sprout.symbol() == "N");
     REQUIRE(brussel_sprout.is_harvestable() == true);
 }
+
 TEST_CASE("Can speed growth process to 5 days by watering"){
     Brussel_Sprout brussel_sprout;
-    // end day 5 times
     brussel_sprout.water();
     brussel_sprout.end_day();
     brussel_sprout.water();
@@ -36,6 +36,7 @@ TEST_CASE("Can speed growth process to 5 days by watering"){
     REQUIRE(brussel_sprout.symbol() == "N");
     REQUIRE(brussel_sprout.is_harvestable() == true);
 }
+
 TEST_CASE("Sprouting occurs after 5 days"){
     Brussel_Sprout brussel_sprout;
     brussel_sprout.end_day();

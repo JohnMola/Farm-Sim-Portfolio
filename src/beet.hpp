@@ -3,6 +3,7 @@
 #include <string>
 
 #include "plot.hpp"
+
 class Beet : public Plot{
 private:
     int age = 0;

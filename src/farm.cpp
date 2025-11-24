@@ -60,8 +60,6 @@ void Farm::harvest(int row, int column){
         plots.at(row).at(column) = new_plot;
         delete current_plot;
     }
-
-
 }
 
 void Farm::end_day() {

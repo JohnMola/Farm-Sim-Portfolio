@@ -1,6 +1,7 @@
 #include "legend_printer.hpp"
 
-std::string LegendPrinter::pp() {
+std::string LegendPrinter::pp(){
+
     std::string output = "";
     output += "      LEGEND      \n";
     output += "@  Player\n";
