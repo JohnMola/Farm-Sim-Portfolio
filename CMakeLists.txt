@@ -24,7 +24,8 @@ add_executable(spinach_test tests/spinach_test.cpp src/spinach.cpp)
 add_executable(lettuce_test tests/lettuce_test.cpp src/lettuce.cpp)
 add_executable(beet_test tests/beet_test.cpp src/beet.cpp)
 add_executable(player_test tests/player_test.cpp src/player.cpp)
-add_executable(main main.cpp src/farm.cpp src/farm_printer.cpp src/soil.cpp src/carrot.cpp src/player.cpp src/lettuce.cpp src/spinach.cpp src/beet.cpp src/brussel_sprout.cpp)
+add_executable(main main.cpp src/farm.cpp src/farm_printer.cpp src/soil.cpp src/carrot.cpp src/player.cpp src/lettuce.cpp src/spinach.cpp src/beet.cpp src/brussel_sprout.cpp
+        src/legend_printer.cpp)
 
 target_link_libraries(farm_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(farm_printer_test PRIVATE Catch2::Catch2WithMain)

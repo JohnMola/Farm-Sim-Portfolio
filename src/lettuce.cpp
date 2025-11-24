@@ -1,7 +1,9 @@
 #include "lettuce.hpp"
 
 std::string Lettuce::symbol(){
-    if(age < 2){
+    if(age < 1){
+        return "#";
+    } else if (age < 2) {
         return "l";
     }
     else{

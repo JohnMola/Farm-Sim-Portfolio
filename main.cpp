@@ -9,6 +9,7 @@
 #include "src/spinach.hpp"
 #include "src/beet.hpp"
 #include "src/brussel_sprout.hpp"
+#include "src/legend_printer.hpp"
 
 int main() {
     Player player(7, 8);
@@ -17,6 +18,12 @@ int main() {
     int current_day = 1;
     bool game_in_progress = true;
     std::string player_input;
+    LegendPrinter legend_printer;
+
+    ansi_clear();
+    std::cout << legend_printer.pp() << std::endl;
+    std::cout << "Press any key to start..." << std::endl;
+    std::cin >> player_input;
 
     while(game_in_progress) {
         ansi_clear();
@@ -55,6 +62,11 @@ int main() {
         } else if(player_input == "n"){
             Brussel_Sprout *brussel_sprout = new Brussel_Sprout();
             farm.plant(player.row(), player.column(), brussel_sprout);
+        } else if(player_input == "?") {
+            ansi_clear();
+            std::cout << legend_printer.pp() << std::endl;
+            std::cout << "Press any key to continue..." << std::endl;
+            std::cin >> player_input;
         }
     }
 }
