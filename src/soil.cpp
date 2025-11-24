@@ -5,10 +5,10 @@ std::string Soil::symbol() {
 }
 
 void Soil::end_day() {
-    // skip
+    // no-op
 }
 
-bool Soil::is_soil() {
+bool Soil::water() {
     return true;
 }
 

@@ -41,7 +41,7 @@ std::string Farm::get_symbol(int row, int column) {
 bool Farm::plant(int row, int column, Plot *plot) {
     Plot *current_plot = plots.at(row).at(column);
 
-    if(!current_plot->is_soil()) {
+    if(!current_plot->water()) {
         delete plot;
         return false;
     }
@@ -51,17 +51,18 @@ bool Farm::plant(int row, int column, Plot *plot) {
     return true;
 }
 
+void Farm::water(int row, int column) {
+    Plot *current_plot = plots.at(row).at(column);
+    current_plot->water();
+}
+
 bool Farm::harvest(int row, int column) {
     Plot *current_plot = plots.at(row).at(column);
 
     if(!current_plot->is_harvestable()) {
-        return false;
+        plots.at(row).at(column) = new Soil();
+        delete current_plot;
     }
-
-    Soil *new_soil = new Soil();
-    plots.at(row).at(column) = new_soil;
-    delete current_plot;
-    return true;
 }
 
 void Farm::end_day() {
@@ -78,4 +79,12 @@ Farm::~Farm() {
             delete plots.at(i).at(j);
         }
     }
+}
+
+bool Farm::is_valid_position(int row, int column) {
+    return row >= 0 && row < rows && column >= 0 && column < columns;
+}
+
+int Farm::get_day() {
+    return day;
 }

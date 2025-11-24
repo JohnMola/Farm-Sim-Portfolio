@@ -7,10 +7,14 @@
 class Carrot : public Plot {
 private:
     int age = 0;
+    bool watered = false;
+    static const int days_to_sprout = 1;
+    static const int days_to_maturity = 1;
 
 public:
     std::string symbol() override;
     void end_day() override;
-    bool is_soil() override;
+    bool water() override;
     bool is_harvestable() override;
+    int get_days();
 };

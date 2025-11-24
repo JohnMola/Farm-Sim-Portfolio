@@ -18,7 +18,20 @@ FetchContent_MakeAvailable(Catch2)
 add_executable(farm_printer_test tests/farm_printer_test.cpp src/farm_printer.cpp src/farm.cpp src/soil.cpp src/player.cpp)
 add_executable(farm_test tests/farm_test.cpp src/farm.cpp src/soil.cpp src/carrot.cpp src/player.cpp)
 add_executable(soil_test tests/soil_test.cpp src/soil.cpp)
-add_executable(carrot_test tests/carrot_test.cpp src/carrot.cpp)
+add_executable(carrot_test tests/carrot_test.cpp src/carrot.cpp
+        src/beet.cpp
+        src/beet.hpp
+        src/brussel_sprout.cpp
+        src/brussel_sprout.hpp
+        src/lettuce.cpp
+        src/lettuce.hpp
+        src/spinach.cpp
+        src/spinach.hpp
+        tests/beet_test.cpp
+        tests/brussel_sprout_test.cpp
+        tests/lettuce_test.cpp
+        tests/spinach_test.cpp
+)
 add_executable(player_test tests/player_test.cpp src/player.cpp)
 add_executable(main main.cpp src/farm.cpp src/farm_printer.cpp src/soil.cpp src/carrot.cpp src/player.cpp)
 

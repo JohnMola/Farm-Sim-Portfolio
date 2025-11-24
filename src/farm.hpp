@@ -12,14 +12,19 @@ private:
     int columns;
     Player *player;
     std::vector<std::vector<Plot *>> plots;
+    int day = 0;
 
 public:
     Farm(int rows, int columns, Player *player);
     int number_of_rows();
     int number_of_columns();
     std::string get_symbol(int row, int column);
+    void water(int row, int column);
     bool plant(int row, int column, Plot *plot);
     bool harvest(int row, int column);
     void end_day();
     ~Farm();
+    bool is_valid_position(int row, int column);
+    int get_day();
+
 };
