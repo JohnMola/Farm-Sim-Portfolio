@@ -3,6 +3,7 @@
 #include <string>
 
 #include "plot.hpp"
+
 class Lettuce : public Plot{
 private:
     int age = 0;

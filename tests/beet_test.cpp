@@ -14,6 +14,7 @@ TEST_CASE("Beets mature after 5 days "){
     beet.end_day();
     REQUIRE(beet.symbol() == "B");
 }
+
 TEST_CASE("Can speed growth process by watering"){
     Beet beet;
     beet.water();
@@ -24,6 +25,7 @@ TEST_CASE("Can speed growth process by watering"){
     beet.end_day();
     REQUIRE(beet.symbol() == "B");
 }
+
 TEST_CASE("Beets sprouts after 2 days"){
     Beet beet;
     beet.end_day();

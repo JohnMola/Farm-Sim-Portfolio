@@ -11,6 +11,7 @@ TEST_CASE("Lettuce matures after 2 days "){
     lettuce.end_day();
     REQUIRE(lettuce.symbol() == "L");
 }
+
 TEST_CASE("Can speed growth process by watering"){
     Lettuce lettuce;
     lettuce.water();

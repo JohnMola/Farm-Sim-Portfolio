@@ -26,5 +26,4 @@ public:
     ~Farm();
     bool is_valid_position(int row, int column);
     int get_day();
-
 };

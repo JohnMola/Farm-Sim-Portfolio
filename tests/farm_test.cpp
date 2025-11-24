@@ -54,5 +54,5 @@ TEST_CASE( "it allows us to plant a carrot" ) {
     Farm farm(1, 2, &player);
     Carrot *carrot = new Carrot();
     farm.plant(0, 1, carrot);
-    REQUIRE( farm.get_symbol(0, 1) == "v" );
+    REQUIRE( farm.get_symbol(0, 1) == "#" );
 }
