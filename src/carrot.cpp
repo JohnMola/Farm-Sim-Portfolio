@@ -3,16 +3,13 @@
 #include "carrot.hpp"
 
 std::string Carrot::symbol() {
-    if(age == 0) {
+    if(age == 0){
         return "v";
-    } else if (age == days_to_sprout) {
+    }else if(age >= 1){
         return "V";
-    } else {
-        return "W";
     }
 }
-
-void Carrot::end_day() {
+void Carrot::end_day(){
     if(watered){
         age += 2;
     }else{
@@ -21,7 +18,7 @@ void Carrot::end_day() {
     watered = false;
 }
 
-bool Carrot::water() {
+void Carrot::water() {
     watered = true;
 }
 

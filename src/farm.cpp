@@ -38,17 +38,14 @@ std::string Farm::get_symbol(int row, int column) {
     }
 }
 
-bool Farm::plant(int row, int column, Plot *plot) {
+void Farm::plant(int row, int column, Plot *plot) {
     Plot *current_plot = plots.at(row).at(column);
-
-    if(!current_plot->water()) {
+    if(current_plot->symbol() == ".") {
+        plots.at(row).at(column) = plot;
+        delete current_plot;
+    } else {
         delete plot;
-        return false;
     }
-
-    plots.at(row).at(column) = plot;
-    delete current_plot;
-    return true;
 }
 
 void Farm::water(int row, int column) {
@@ -56,13 +53,15 @@ void Farm::water(int row, int column) {
     current_plot->water();
 }
 
-bool Farm::harvest(int row, int column) {
+void Farm::harvest(int row, int column){
     Plot *current_plot = plots.at(row).at(column);
-
-    if(!current_plot->is_harvestable()) {
-        plots.at(row).at(column) = new Soil();
+    if (current_plot->is_harvestable()){
+        Plot *new_plot = new Soil();
+        plots.at(row).at(column) = new_plot;
         delete current_plot;
     }
+
+
 }
 
 void Farm::end_day() {

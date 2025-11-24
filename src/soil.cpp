@@ -8,8 +8,8 @@ void Soil::end_day() {
     // no-op
 }
 
-bool Soil::water() {
-    return true;
+void Soil::water() {
+    // no-op
 }
 
 bool Soil::is_harvestable() {

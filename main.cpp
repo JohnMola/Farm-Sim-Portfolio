@@ -1,12 +1,14 @@
 #include <iostream>
-#include <vector>
-#include <stdexcept>
 
 #include "src/player.hpp"
 #include "src/farm.hpp"
 #include "src/farm_printer.hpp"
 #include "src/carrot.hpp"
 #include "src/ansi_clear.hpp"
+#include "src/lettuce.hpp"
+#include "src/spinach.hpp"
+#include "src/beet.hpp"
+#include "src/brussel_sprout.hpp"
 
 int main() {
     Player player(7, 8);
@@ -34,16 +36,25 @@ int main() {
             player.move_up();
         } else if(player_input == "c") {
             Carrot *carrot = new Carrot();
-            if(!farm.plant(player.row(), player.column(), carrot)) {
-                std::cout << "Cannot plant a carrot on a carrot" << std::endl;
-            }
-        } else if(player_input == "e") {
+            farm.plant(player.row(), player.column(), carrot);
+        } else if(player_input == "h"){
+            farm.harvest(player.row(), player.column());
+        } else if(player_input == "e"){
             farm.end_day();
-            current_day++;
-        } else if(player_input == "h") {
-            if(!farm.harvest(player.row(), player.column())) {
-                std::cout << "Cannot harvest a baby carrot" << std::endl;
-            }
+        } else if(player_input == "t"){
+            farm.water(player.row(),player.column());
+        } else if(player_input == "l"){
+            Lettuce *lettuce = new Lettuce();
+            farm.plant(player.row(), player.column(), lettuce);
+        } else if(player_input == "u"){
+            Spinach *spinach = new Spinach();
+            farm.plant(player.row(), player.column(), spinach);
+        } else if(player_input == "b"){
+            Beet *beet = new Beet();
+            farm.plant(player.row(), player.column(), beet);
+        } else if(player_input == "n"){
+            Brussel_Sprout *brussel_sprout = new Brussel_Sprout();
+            farm.plant(player.row(), player.column(), brussel_sprout);
         }
     }
 }
