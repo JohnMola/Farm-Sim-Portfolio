@@ -11,6 +11,7 @@
 TEST_CASE( "it can be initialized with a single plot" ) {
     Player player(1, 1);
     Farm farm(1, 1, &player);
+    farm.set_bunny_spawn(false);
     REQUIRE( farm.number_of_rows() == 1 );
     REQUIRE( farm.number_of_columns() == 1 );
 }
@@ -18,6 +19,7 @@ TEST_CASE( "it can be initialized with a single plot" ) {
 TEST_CASE( "it can be initialized as a 1x2 farm" ) {
     Player player(1, 2);
     Farm farm(1, 2, &player);
+    farm.set_bunny_spawn(false);
     REQUIRE( farm.number_of_rows() == 1 );
     REQUIRE( farm.number_of_columns() == 2 );
 }
@@ -25,6 +27,7 @@ TEST_CASE( "it can be initialized as a 1x2 farm" ) {
 TEST_CASE( "it can be initialized as a 2x1 farm" ) {
     Player player(2, 1);
     Farm farm(2, 1, &player);
+    farm.set_bunny_spawn(false);
     REQUIRE( farm.number_of_rows() == 2 );
     REQUIRE( farm.number_of_columns() == 1 );
 }
@@ -32,12 +35,14 @@ TEST_CASE( "it can be initialized as a 2x1 farm" ) {
 TEST_CASE( "it returns the symbol for a single soil plot" ) {
     Player player(1, 1);
     Farm farm(1, 1, &player);
+    farm.set_bunny_spawn(false);
     REQUIRE( farm.get_symbol(0, 0) == "@" );
 }
 
 TEST_CASE( "it returns the symbols for a 1x2 farm" ) {
     Player player(1, 2);
     Farm farm(1, 2, &player);
+    farm.set_bunny_spawn(false);
     REQUIRE( farm.get_symbol(0, 0) == "@" );
     REQUIRE( farm.get_symbol(0, 1) == "." );
 }
@@ -45,6 +50,7 @@ TEST_CASE( "it returns the symbols for a 1x2 farm" ) {
 TEST_CASE( "it returns the symbols for a 2x1 farm" ) {
     Player player(2, 1);
     Farm farm(2, 1, &player);
+    farm.set_bunny_spawn(false);
     REQUIRE( farm.get_symbol(0, 0) == "@" );
     REQUIRE( farm.get_symbol(1, 0) == "." );
 }
@@ -52,6 +58,7 @@ TEST_CASE( "it returns the symbols for a 2x1 farm" ) {
 TEST_CASE( "it allows us to plant a carrot" ) {
     Player player(1, 2);
     Farm farm(1, 2, &player);
+    farm.set_bunny_spawn(false);
     Carrot *carrot = new Carrot();
     farm.plant(0, 1, carrot);
     REQUIRE( farm.get_symbol(0, 1) == "#" );

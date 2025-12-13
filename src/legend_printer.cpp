@@ -5,6 +5,7 @@ std::string LegendPrinter::pp(){
     std::string output = "";
     output += "      LEGEND      \n";
     output += "@  Player\n";
+    output += "R  Bunnies\n";
     output += ".  Soil\n";
     output += "#  Tilled soil\n";
     output += "\nVegetables\n";
